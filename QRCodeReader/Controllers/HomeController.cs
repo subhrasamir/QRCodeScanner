@@ -45,14 +45,12 @@ namespace QRCodeReader.Controllers
 
                         JavaScriptSerializer jsSerializer = new JavaScriptSerializer();
                         ScannerData[] objScannerData = jsSerializer.Deserialize<ScannerData[]>(response.Content);
-                        strScannedData = new JavaScriptSerializer().Serialize(objScannerData);
-                       
+                        strScannedData = new JavaScriptSerializer().Serialize(objScannerData);                       
                     }
                     else
                     {
                         strScannedData = Resource.InvalidFile;
                     }
-
                 }
                 catch (Exception)
                 {
@@ -63,9 +61,7 @@ namespace QRCodeReader.Controllers
             {
                 strScannedData = Resource.FileNotUploaded;
             }
-
             return Json(JsonConvert.SerializeObject(strScannedData));
         }
-
     }
 }
